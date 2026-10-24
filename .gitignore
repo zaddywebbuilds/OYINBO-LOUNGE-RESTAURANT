@@ -1,0 +1,7 @@
+# Source photo kits — keep locally, not needed to serve the site
+menu-images-raw/
+Oyinbo_Lounge_25_Menu_Images.zip
+
+# OS / editor noise
+Thumbs.db
+.DS_Store

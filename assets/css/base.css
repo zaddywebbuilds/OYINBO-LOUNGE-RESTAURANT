@@ -1,0 +1,164 @@
+/* =============================================================
+   OYINBO — 02 BASE
+   Reset, document defaults, typography, accessibility.
+   ============================================================= */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--t-base);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+/* A faint yellow/green wash so large plum areas never read as flat. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(70% 50% at 12% -5%, rgba(255, 213, 74, 0.08), transparent 70%),
+    radial-gradient(60% 45% at 92% 8%, rgba(55, 200, 113, 0.07), transparent 70%),
+    radial-gradient(80% 60% at 50% 105%, rgba(139, 95, 196, 0.18), transparent 70%);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select { font: inherit; color: inherit; }
+
+p,
+h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+/* ---- Headings ------------------------------------------------ */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text);
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 36;
+}
+
+h1 { font-size: var(--t-3xl); }
+h2 { font-size: var(--t-2xl); }
+h3 { font-size: var(--t-lg); line-height: var(--lh-snug); }
+h4 { font-size: var(--t-md); line-height: var(--lh-snug); }
+
+p { color: var(--text-soft); }
+p + p { margin-top: var(--s-4); }
+
+strong { color: var(--text); font-weight: 600; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--dur-1) var(--ease);
+}
+a:hover { color: var(--accent-hi); }
+
+ul, ol { padding: 0; list-style: none; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--line);
+}
+
+/* ---- Focus --------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--yellow-300);
+  outline-offset: 3px;
+  border-radius: var(--r-xs);
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -140%);
+  z-index: var(--z-modal);
+  padding: var(--s-3) var(--s-5);
+  background: var(--yellow-400);
+  color: var(--plum-950);
+  font-weight: 700;
+  font-size: var(--t-sm);
+  border-radius: 0 0 var(--r-sm) var(--r-sm);
+  transition: transform var(--dur-2) var(--ease);
+}
+.skip-link:focus { transform: translate(-50%, 0); color: var(--plum-950); }
+
+/* ---- Selection ----------------------------------------------- */
+::selection {
+  background: var(--yellow-400);
+  color: var(--plum-950);
+}
+
+/* ---- Scrollbar ----------------------------------------------- */
+@supports (scrollbar-color: red blue) {
+  html { scrollbar-color: var(--plum-600) var(--plum-900); scrollbar-width: thin; }
+}
+
+/* ---- Utilities ----------------------------------------------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.u-measure { max-width: var(--measure); }
+.u-center { margin-inline: auto; text-align: center; }
+.u-mt-5 { margin-top: var(--s-5); }
+.u-mt-6 { margin-top: var(--s-6); }
+.u-mt-7 { margin-top: var(--s-7); }
+
+/* ---- Motion preferences --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body::before, .site-header, .site-footer, .dock { display: none !important; }
+  body { background: #fff; color: #000; }
+}

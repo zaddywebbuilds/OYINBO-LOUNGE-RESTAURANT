@@ -1,0 +1,147 @@
+/* =============================================================
+   OYINBO — 01 TOKENS
+   The single source of truth for colour, type, space and depth.
+
+   Palette: a deep plum room lit by yellow and green.
+   Purple carries every surface, yellow is the primary accent,
+   green is the second voice. Amber is a narrow heat tint only.
+   ============================================================= */
+
+:root {
+  /* ---- Purple: all surfaces --------------------------------- */
+  --plum-950: #150823;
+  --plum-900: #22103A;   /* page background */
+  --plum-850: #2A1446;
+  --plum-800: #331A52;   /* raised surface */
+  --plum-700: #3D2060;   /* card */
+  --plum-600: #4E2C77;   /* border / hairline */
+  --plum-500: #6B42A0;
+  --plum-400: #8B5FC4;
+  --plum-300: #B68FE5;
+
+  /* ---- Yellow: primary accent -------------------------------- */
+  --yellow-100: #FFF8DF;
+  --yellow-200: #FFEFB4;
+  --yellow-300: #FFE27A;
+  --yellow-400: #FFD54A;   /* primary */
+  --yellow-500: #E9B81F;
+  --yellow-600: #B98C10;
+
+  /* ---- Green: second voice ----------------------------------- */
+  --green-200: #BDF5D4;
+  --green-300: #7BE8A6;
+  --green-400: #37C871;   /* primary green */
+  --green-500: #22A557;
+  --green-600: #15803D;
+
+  /* ---- Amber: heat tint (spice marks only) -------------------- */
+  --amber-300: #FFB75E;
+  --amber-400: #FF9426;
+
+  /* ---- Text (cool, lilac-shifted) ---------------------------- */
+  --mist-100: #FBF7FF;   /* primary text */
+  --mist-200: #EADFF7;
+  --mist-300: #CBB9E6;   /* secondary text */
+  --mist-400: #A694C0;   /* muted text */
+
+  /* ---- Semantic ---------------------------------------------- */
+  --bg: var(--plum-900);
+  --bg-raised: var(--plum-800);
+  --bg-band: var(--plum-950);   /* alternating section band — darker than the page */
+  --bg-card: var(--plum-700);
+  --line: var(--plum-600);
+  --line-soft: rgba(255, 213, 74, 0.18);
+  --text: var(--mist-100);
+  --text-soft: var(--mist-300);
+  --text-muted: var(--mist-400);
+  --accent: var(--yellow-400);
+  --accent-hi: var(--yellow-300);
+  --accent-2: var(--green-400);
+
+  /* Translucent layers for glass + overlays */
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-hi: rgba(255, 255, 255, 0.11);
+  --glass-line: rgba(255, 255, 255, 0.14);
+  --scrim: rgba(21, 8, 35, 0.74);
+
+  /* Tints — used anywhere a colour needs to sit on a surface */
+  --tint-yellow: rgba(255, 213, 74, 0.13);
+  --tint-yellow-line: rgba(255, 213, 74, 0.30);
+  --tint-green: rgba(55, 200, 113, 0.14);
+  --tint-green-line: rgba(55, 200, 113, 0.32);
+  --tint-amber: rgba(255, 148, 38, 0.16);
+  --tint-plum: rgba(139, 95, 196, 0.16);
+
+  /* ---- Type ------------------------------------------------- */
+  --font-display: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Fluid type scale — clamp(min, preferred, max) */
+  --t-xs:   0.75rem;
+  --t-sm:   0.8125rem;
+  --t-base: 1rem;
+  --t-md:   clamp(1rem, 0.25vw + 0.95rem, 1.125rem);
+  --t-lg:   clamp(1.1875rem, 0.5vw + 1.05rem, 1.4375rem);
+  --t-xl:   clamp(1.4375rem, 1vw + 1.15rem, 1.875rem);
+  --t-2xl:  clamp(1.75rem, 2.2vw + 1.2rem, 2.875rem);
+  --t-3xl:  clamp(2.125rem, 4vw + 1.1rem, 4.25rem);
+
+  --lh-tight: 1.06;
+  --lh-snug: 1.25;
+  --lh-body: 1.62;
+  --ls-tight: -0.022em;
+  --ls-wide: 0.14em;
+
+  /* ---- Space (4px base) ------------------------------------- */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+
+  --gutter: clamp(1.125rem, 4vw, 2.5rem);
+  --section-y: clamp(3.25rem, 8vw, 7rem);
+  --measure: 62ch;
+  --max-w: 1240px;
+  --max-w-narrow: 760px;
+  --header-h: 4.25rem;
+
+  /* ---- Shape ------------------------------------------------ */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* ---- Depth ------------------------------------------------ */
+  --sh-1: 0 1px 2px rgba(10, 4, 18, 0.45);
+  --sh-2: 0 6px 20px rgba(10, 4, 18, 0.5);
+  --sh-3: 0 18px 48px rgba(10, 4, 18, 0.6);
+  --sh-4: 0 28px 70px rgba(10, 4, 18, 0.68);
+  --sh-glow: 0 10px 40px rgba(255, 213, 74, 0.26);
+
+  /* ---- Motion ------------------------------------------------ */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 160ms;
+  --dur-2: 280ms;
+  --dur-3: 520ms;
+
+  /* ---- Layers ------------------------------------------------ */
+  --z-base: 1;
+  --z-sticky: 50;
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+}
+
+@media (min-width: 62rem) {
+  :root { --header-h: 4.75rem; }
+}
