@@ -27,7 +27,7 @@ HEAD = """<!DOCTYPE html>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{site}{canonical}">
 
-<meta name="theme-color" content="#22103A">
+<meta name="theme-color" content="#FDF1E0">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="Oyinbo Bar &amp; Grill Lounge">
 <meta property="og:title" content="{title}">
@@ -43,7 +43,7 @@ HEAD = """<!DOCTYPE html>
 <meta name="twitter:image" content="{site}assets/img/og-cover.jpg">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="mask-icon" href="favicon.svg" color="#FFD54A">
+<link rel="mask-icon" href="favicon.svg" color="#985809">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
