@@ -4,10 +4,18 @@ Run from the project root:  python .build/compose.py
 Edit .build/*.body.html (and this file's PAGES table) rather than the
 generated .html at the root, or the next run will overwrite your changes.
 """
+import datetime
 import pathlib
 import re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+# Where the site is actually served from. Every absolute URL on the site —
+# canonical, og:url, og:image, the JSON-LD and the sitemap — is built from
+# this, so switching to the real domain is a one-line change here:
+#   SITE_URL = "https://www.oyinbolounge.com/"
+# Must end in a slash.
+SITE_URL = "https://zaddywebbuilds.github.io/OYINBO-LOUNGE-RESTAURANT/"
 BUILD = ROOT / ".build"
 
 HEAD = """<!DOCTYPE html>
@@ -17,22 +25,22 @@ HEAD = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
-<link rel="canonical" href="https://www.oyinbolounge.com/{canonical}">
+<link rel="canonical" href="{site}{canonical}">
 
 <meta name="theme-color" content="#22103A">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="Oyinbo Bar &amp; Grill Lounge">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
-<meta property="og:url" content="https://www.oyinbolounge.com/{canonical}">
-<meta property="og:image" content="https://www.oyinbolounge.com/assets/img/og-cover.jpg">
+<meta property="og:url" content="{site}{canonical}">
+<meta property="og:image" content="{site}assets/img/og-cover.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Oyinbo Bar &amp; Grill Lounge — Nigerian kitchen, craft bar and afrobeats nights at 2300 Finch Ave W, Unit 68, North York">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.oyinbolounge.com/assets/img/og-cover.jpg">
+<meta name="twitter:image" content="{site}assets/img/og-cover.jpg">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="mask-icon" href="favicon.svg" color="#FFD54A">
@@ -131,6 +139,40 @@ def bundle_css() -> None:
     print("bundled site.css (%d KB)" % (out.stat().st_size // 1024))
 
 
+def write_site_files(slugs) -> None:
+    """robots.txt and sitemap.xml, built from SITE_URL and the page list."""
+    today = datetime.date.today().isoformat()
+
+    (ROOT / "robots.txt").write_text(
+        "\n".join([
+            "User-agent: *",
+            "Allow: /",
+            "",
+            "Sitemap: {}sitemap.xml".format(SITE_URL),
+            "",
+        ]),
+        encoding="utf-8",
+    )
+
+    priority = {"": "1.0", "menu.html": "0.9"}
+    rows = [
+        '  <url><loc>{}{}</loc><lastmod>{}</lastmod><priority>{}</priority></url>'
+        .format(SITE_URL, slug, today, priority.get(slug, "0.8"))
+        for slug in slugs
+    ]
+    (ROOT / "sitemap.xml").write_text(
+        "\n".join([
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+            *rows,
+            "</urlset>",
+            "",
+        ]),
+        encoding="utf-8",
+    )
+    print("wrote robots.txt + sitemap.xml")
+
+
 def main() -> None:
     bundle_css()
 
@@ -141,8 +183,9 @@ def main() -> None:
         page = dict(page)
         page.setdefault("canonical", page["slug"])
         page.setdefault("og_type", "website")
+        page["site"] = SITE_URL
         extra_file = page.pop("extra_head_file", None)
-        extra = (BUILD / extra_file).read_text(encoding="utf-8") if extra_file else ""
+        extra = (BUILD / extra_file).read_text(encoding="utf-8").replace("{{SITE}}", SITE_URL) if extra_file else ""
 
         body_file = BUILD / (page["slug"].replace(".html", "") + ".body.html")
         body = body_file.read_text(encoding="utf-8")
@@ -157,6 +200,8 @@ def main() -> None:
         )
         (ROOT / page["slug"]).write_text(html, encoding="utf-8")
         print("wrote", page["slug"])
+
+    write_site_files([p["canonical"] if "canonical" in p else p["slug"] for p in PAGES])
 
 
 if __name__ == "__main__":

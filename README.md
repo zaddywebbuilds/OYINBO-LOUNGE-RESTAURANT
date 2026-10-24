@@ -78,6 +78,14 @@ loaded at only the weights the stylesheets use.
 * `main.js` is deferred, has no dependencies, and the page is fully readable
   without it — the scroll-reveal only hides content once `html.js` is set.
 
+## Deployment
+
+Served by GitHub Pages from `main` at the repository root:
+<https://zaddywebbuilds.github.io/OYINBO-LOUNGE-RESTAURANT/>
+
+There is no build step on the server — whatever is committed is what ships, so
+run `python .build/compose.py` and commit the regenerated files before pushing.
+
 ## Social previews
 
 `assets/img/og-cover.jpg` (1200×630, ~90 KB) is the card WhatsApp, Facebook,
@@ -118,7 +126,10 @@ refresh it.
    photographs of Oyinbo's food. `asun` and `goat-pepper-soup` matter most —
    both sit on the home page.
 2. **Confirm the phone number** against the three above.
-3. **Point the domain at this build**, or change the canonical and `og:url`
-   values in `.build/compose.py` if it will live elsewhere.
+3. **Switch to the real domain.** Every absolute URL — canonical, `og:url`,
+   `og:image`, the JSON-LD, `sitemap.xml` and `robots.txt` — is built from
+   `SITE_URL` at the top of `.build/compose.py`. Change that one line to
+   `https://www.oyinbolounge.com/`, rebuild, and point the domain at the
+   repo (Settings → Pages → custom domain).
 4. **Refresh the rating.** The `aggregateRating` in the home page JSON-LD
    (5.0 from 5 reviews) reflects the Google profile as of 24 October 2026.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.oyinbolounge.com/sitemap.xml
+Sitemap: https://zaddywebbuilds.github.io/OYINBO-LOUNGE-RESTAURANT/sitemap.xml
