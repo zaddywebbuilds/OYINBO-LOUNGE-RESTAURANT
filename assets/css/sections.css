@@ -14,12 +14,12 @@
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(62% 60% at 8% -6%, rgba(255, 213, 74, 0.20), transparent 62%),
-    radial-gradient(52% 52% at 96% 4%, rgba(55, 200, 113, 0.17), transparent 62%),
-    radial-gradient(80% 85% at 52% 112%, rgba(139, 95, 196, 0.40), transparent 68%),
-    linear-gradient(170deg, var(--plum-850) 0%, var(--plum-900) 55%, var(--plum-950) 100%);
+    radial-gradient(62% 60% at 8% -6%, rgba(240, 163, 46, 0.20), transparent 62%),
+    radial-gradient(52% 52% at 96% 4%, rgba(123, 163, 63, 0.17), transparent 62%),
+    radial-gradient(80% 85% at 52% 112%, rgba(168, 69, 126, 0.40), transparent 68%),
+    linear-gradient(170deg, var(--cream-50) 0%, var(--cream-200) 60%, var(--cream-300) 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(46, 32, 23, 0.06),
     var(--sh-4);
 }
 @media (min-width: 62rem) {
@@ -43,13 +43,13 @@
   inset: 0;
   margin: auto;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(46, 32, 23, 0.05);
 }
 .stage__arcs span:nth-child(1) { width: 34%; height: 34%; }
 .stage__arcs span:nth-child(2) { width: 52%; height: 52%; }
-.stage__arcs span:nth-child(3) { width: 70%; height: 70%; border-color: rgba(255, 213, 74, 0.07); }
+.stage__arcs span:nth-child(3) { width: 70%; height: 70%; border-color: rgba(240, 163, 46, 0.07); }
 .stage__arcs span:nth-child(4) { width: 88%; height: 88%; }
-.stage__arcs span:nth-child(5) { width: 106%; height: 106%; border-color: rgba(55, 200, 113, 0.06); }
+.stage__arcs span:nth-child(5) { width: 106%; height: 106%; border-color: rgba(123, 163, 63, 0.06); }
 
 .stage__grid {
   position: relative;
@@ -77,18 +77,18 @@
   opacity: 0.55;
   z-index: 0;
 }
-.stage__aura--warm { background: var(--yellow-500); transform: translate(-14%, -12%); }
-.stage__aura--cool { background: var(--green-500); transform: translate(16%, 14%); }
+.stage__aura--warm { background: var(--saffron-500); transform: translate(-14%, -12%); }
+.stage__aura--cool { background: var(--olive-500); transform: translate(16%, 14%); }
 
 figure.stage__card {
   position: relative;
   z-index: 1;
   margin: 0;
-  width: min(100%, 30rem);
+  width: min(100%, 36rem);
   border-radius: var(--r-xl);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: var(--plum-850);
+  border: 1px solid rgba(46, 32, 23, 0.12);
+  background: var(--cream-300);
   box-shadow: var(--sh-4);
   animation: float 9s var(--ease) infinite;
 }
@@ -102,13 +102,13 @@ figure.stage__card {
   gap: var(--s-2);
   padding: 0.5rem 0.875rem;
   border-radius: var(--r-pill);
-  background: rgba(21, 8, 35, 0.82);
+  background: rgba(255, 252, 246, 0.90);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-line);
   font-size: var(--t-xs);
   font-weight: 700;
-  color: var(--mist-200);
+  color: var(--ink-700);
 }
 .stage__card figcaption .dot {
   width: 0.4375rem; height: 0.4375rem; border-radius: 50%;
@@ -122,7 +122,7 @@ figure.stage__card {
 /* --- Right: a slowly turning wheel of the kitchen ------------------ */
 .ring {
   position: relative;
-  width: min(33rem, 100%);
+  width: min(38rem, 100%);
   aspect-ratio: 1;
   margin-inline: auto;
 }
@@ -138,9 +138,9 @@ figure.stage__card {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 6.75rem;
-  height: 8.5rem;
-  margin: -4.25rem 0 0 -3.375rem;
+  width: 8.25rem;
+  height: 10.25rem;
+  margin: -5.125rem 0 0 -4.125rem;
 }
 .ring__upright { width: 100%; height: 100%; }
 .ring__card {
@@ -149,8 +149,8 @@ figure.stage__card {
   height: 100%;
   border-radius: var(--r-md);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: var(--plum-800);
+  border: 1px solid rgba(46, 32, 23, 0.14);
+  background: var(--cream-100);
   box-shadow: var(--sh-3);
   animation: spin 54s linear infinite reverse;
   transition: border-color var(--dur-2) var(--ease);
@@ -161,24 +161,24 @@ figure.stage__card {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   padding: 1.5rem 0.5rem 0.4375rem;
-  background: linear-gradient(0deg, rgba(21, 8, 35, 0.92), transparent);
+  background: linear-gradient(0deg, rgba(46, 32, 23, 0.86), transparent);
   font-size: 0.625rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-align: center;
-  color: var(--mist-200);
+  color: var(--cream-50);
 }
 
 /* Eight seats around the wheel; each card counter-rotates to stay level. */
-.ring__item:nth-child(1) { transform: rotate(0deg)   translateY(-11.5rem); }
-.ring__item:nth-child(2) { transform: rotate(45deg)  translateY(-11.5rem); }
-.ring__item:nth-child(3) { transform: rotate(90deg)  translateY(-11.5rem); }
-.ring__item:nth-child(4) { transform: rotate(135deg) translateY(-11.5rem); }
-.ring__item:nth-child(5) { transform: rotate(180deg) translateY(-11.5rem); }
-.ring__item:nth-child(6) { transform: rotate(225deg) translateY(-11.5rem); }
-.ring__item:nth-child(7) { transform: rotate(270deg) translateY(-11.5rem); }
-.ring__item:nth-child(8) { transform: rotate(315deg) translateY(-11.5rem); }
+.ring__item:nth-child(1) { transform: rotate(0deg)   translateY(-13.25rem); }
+.ring__item:nth-child(2) { transform: rotate(45deg)  translateY(-13.25rem); }
+.ring__item:nth-child(3) { transform: rotate(90deg)  translateY(-13.25rem); }
+.ring__item:nth-child(4) { transform: rotate(135deg) translateY(-13.25rem); }
+.ring__item:nth-child(5) { transform: rotate(180deg) translateY(-13.25rem); }
+.ring__item:nth-child(6) { transform: rotate(225deg) translateY(-13.25rem); }
+.ring__item:nth-child(7) { transform: rotate(270deg) translateY(-13.25rem); }
+.ring__item:nth-child(8) { transform: rotate(315deg) translateY(-13.25rem); }
 .ring__item:nth-child(1) .ring__upright { transform: rotate(0deg); }
 .ring__item:nth-child(2) .ring__upright { transform: rotate(-45deg); }
 .ring__item:nth-child(3) .ring__upright { transform: rotate(-90deg); }
@@ -193,17 +193,17 @@ figure.stage__card {
 .ring__hub {
   position: absolute;
   top: 50%; left: 50%;
-  width: 9rem; height: 9rem;
-  margin: -4.5rem 0 0 -4.5rem;
+  width: 10rem; height: 10rem;
+  margin: -5rem 0 0 -5rem;
   border-radius: 50%;
   display: grid;
   place-items: center;
   text-align: center;
-  background: rgba(21, 8, 35, 0.78);
+  background: rgba(255, 252, 246, 0.90);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--tint-yellow-line);
-  box-shadow: var(--sh-3), inset 0 0 40px rgba(255, 213, 74, 0.08);
+  border: 1px solid var(--tint-saffron-line);
+  box-shadow: var(--sh-3), inset 0 0 40px rgba(240, 163, 46, 0.08);
 }
 .ring__hub span { display: block; }
 .ring__hub .mark {
@@ -264,12 +264,12 @@ figure.stage__card {
 .stage__title h1 em {
   font-style: normal;
   display: block;
-  background: linear-gradient(100deg, var(--yellow-200), var(--yellow-400) 40%, var(--green-400));
+  background: linear-gradient(100deg, var(--saffron-200), var(--saffron-400) 40%, var(--olive-400));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.stage__lede { font-size: var(--t-md); max-width: 48ch; color: var(--mist-200); }
+.stage__lede { font-size: var(--t-md); max-width: 48ch; color: var(--ink-700); }
 .stage__facts {
   display: flex;
   flex-wrap: wrap;
@@ -311,7 +311,7 @@ figure.stage__card {
   border-radius: var(--r-xl);
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--plum-850);
+  background: var(--cream-300);
   box-shadow: var(--sh-3);
 }
 .split__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
@@ -328,7 +328,7 @@ figure.stage__card {
   gap: 0.125rem;
   padding: var(--s-4) var(--s-5);
   border-radius: var(--r-md);
-  background: rgba(21, 8, 35, 0.78);
+  background: rgba(255, 252, 246, 0.90);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-line);
@@ -362,7 +362,7 @@ figure.stage__card {
   background: var(--bg-card);
   transition: border-color var(--dur-2) var(--ease), background var(--dur-2) var(--ease);
 }
-.night:hover { border-color: rgba(255, 213, 74, 0.35); background: var(--plum-800); }
+.night:hover { border-color: rgba(240, 163, 46, 0.35); background: var(--cream-100); }
 .night__day {
   font-family: var(--font-display);
   font-size: var(--t-lg);
@@ -385,9 +385,9 @@ figure.stage__card {
   border-radius: var(--r-xl);
   border: 1px solid var(--line-soft);
   background:
-    radial-gradient(90% 120% at 100% 0%, rgba(55, 200, 113, 0.16), transparent 60%),
-    radial-gradient(80% 110% at 0% 100%, rgba(255, 213, 74, 0.14), transparent 60%),
-    radial-gradient(70% 90% at 50% 50%, rgba(139, 95, 196, 0.22), transparent 70%),
+    radial-gradient(90% 120% at 100% 0%, rgba(123, 163, 63, 0.16), transparent 60%),
+    radial-gradient(80% 110% at 0% 100%, rgba(240, 163, 46, 0.14), transparent 60%),
+    radial-gradient(70% 90% at 50% 50%, rgba(168, 69, 126, 0.22), transparent 70%),
     var(--bg-raised);
 }
 .panel__grid {
@@ -410,8 +410,8 @@ figure.stage__card {
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
-  background: rgba(255, 213, 74, 0.14);
-  border: 1px solid rgba(255, 213, 74, 0.3);
+  background: rgba(240, 163, 46, 0.14);
+  border: 1px solid rgba(240, 163, 46, 0.3);
   color: var(--accent);
 }
 .perk__check svg { width: 0.875rem; height: 0.875rem; }
@@ -430,7 +430,7 @@ figure.stage__card {
   border-radius: var(--r-lg);
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--plum-850);
+  background: var(--cream-300);
   min-height: 22rem;
   box-shadow: var(--sh-2);
 }
@@ -444,8 +444,8 @@ figure.stage__card {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: var(--r-sm);
-  background: rgba(255, 213, 74, 0.1);
-  border: 1px solid rgba(255, 213, 74, 0.2);
+  background: rgba(240, 163, 46, 0.1);
+  border: 1px solid rgba(240, 163, 46, 0.2);
   color: var(--accent);
 }
 .info-item__icon svg { width: 1.125rem; height: 1.125rem; }
@@ -463,10 +463,10 @@ figure.stage__card {
   text-align: center;
   border: 1px solid var(--line-soft);
   background:
-    radial-gradient(70% 140% at 50% 0%, rgba(255, 213, 74, 0.18), transparent 65%),
-    radial-gradient(60% 120% at 12% 100%, rgba(55, 200, 113, 0.16), transparent 65%),
-    radial-gradient(60% 120% at 88% 100%, rgba(139, 95, 196, 0.28), transparent 65%),
-    var(--plum-850);
+    radial-gradient(70% 140% at 50% 0%, rgba(240, 163, 46, 0.18), transparent 65%),
+    radial-gradient(60% 120% at 12% 100%, rgba(123, 163, 63, 0.16), transparent 65%),
+    radial-gradient(60% 120% at 88% 100%, rgba(168, 69, 126, 0.28), transparent 65%),
+    var(--cream-300);
 }
 .cta-band h2 { max-width: 20ch; margin-inline: auto; }
 .cta-band p { max-width: 48ch; margin-inline: auto; font-size: var(--t-md); }
@@ -480,9 +480,9 @@ figure.stage__card {
   padding-bottom: clamp(2.5rem, 6vw, 4rem);
   border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(80% 120% at 12% 0%, rgba(255, 213, 74, 0.13), transparent 60%),
-    radial-gradient(70% 110% at 92% 6%, rgba(55, 200, 113, 0.11), transparent 60%),
-    radial-gradient(90% 130% at 50% 120%, rgba(139, 95, 196, 0.26), transparent 65%);
+    radial-gradient(80% 120% at 12% 0%, rgba(240, 163, 46, 0.13), transparent 60%),
+    radial-gradient(70% 110% at 92% 6%, rgba(123, 163, 63, 0.11), transparent 60%),
+    radial-gradient(90% 130% at 50% 120%, rgba(168, 69, 126, 0.26), transparent 65%);
 }
 .page-head__inner { display: grid; gap: var(--s-4); max-width: 44rem; }
 .page-head p { font-size: var(--t-md); }
@@ -503,7 +503,7 @@ figure.stage__card {
   margin-bottom: var(--s-5);
   overflow-x: auto;
   scrollbar-width: none;
-  background: rgba(34, 16, 58, 0.9);
+  background: rgba(255, 247, 234, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
@@ -521,7 +521,7 @@ figure.stage__card {
   transition: all var(--dur-1) var(--ease);
 }
 .menu-nav a:hover,
-.menu-nav a.is-active { color: var(--plum-950); background: var(--yellow-400); border-color: var(--yellow-400); }
+.menu-nav a.is-active { color: var(--ink-900); background: var(--saffron-400); border-color: var(--saffron-400); }
 
 .menu-group { scroll-margin-top: 10rem; }
 .menu-group + .menu-group { margin-top: clamp(3rem, 6vw, 5rem); }
@@ -551,7 +551,7 @@ figure.stage__card {
   font-family: var(--font-display);
   font-size: var(--t-lg);
   font-style: italic;
-  color: var(--mist-200);
+  color: var(--ink-700);
 }
 .prose ul { margin: var(--s-4) 0; display: grid; gap: var(--s-3); }
 .prose li { position: relative; padding-left: var(--s-5); color: var(--text-soft); }

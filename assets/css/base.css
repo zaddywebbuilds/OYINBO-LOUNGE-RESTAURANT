@@ -36,9 +36,9 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(70% 50% at 12% -5%, rgba(255, 213, 74, 0.08), transparent 70%),
-    radial-gradient(60% 45% at 92% 8%, rgba(55, 200, 113, 0.07), transparent 70%),
-    radial-gradient(80% 60% at 50% 105%, rgba(139, 95, 196, 0.18), transparent 70%);
+    radial-gradient(70% 50% at 12% -5%, rgba(240, 163, 46, 0.08), transparent 70%),
+    radial-gradient(60% 45% at 92% 8%, rgba(123, 163, 63, 0.07), transparent 70%),
+    radial-gradient(80% 60% at 50% 105%, rgba(168, 69, 126, 0.18), transparent 70%);
 }
 
 img,
@@ -96,7 +96,7 @@ hr {
 
 /* ---- Focus --------------------------------------------------- */
 :focus-visible {
-  outline: 2px solid var(--yellow-300);
+  outline: 2px solid var(--saffron-300);
   outline-offset: 3px;
   border-radius: var(--r-xs);
 }
@@ -108,24 +108,24 @@ hr {
   transform: translate(-50%, -140%);
   z-index: var(--z-modal);
   padding: var(--s-3) var(--s-5);
-  background: var(--yellow-400);
-  color: var(--plum-950);
+  background: var(--saffron-400);
+  color: var(--cream-50);
   font-weight: 700;
   font-size: var(--t-sm);
   border-radius: 0 0 var(--r-sm) var(--r-sm);
   transition: transform var(--dur-2) var(--ease);
 }
-.skip-link:focus { transform: translate(-50%, 0); color: var(--plum-950); }
+.skip-link:focus { transform: translate(-50%, 0); color: var(--cream-50); }
 
 /* ---- Selection ----------------------------------------------- */
 ::selection {
-  background: var(--yellow-400);
-  color: var(--plum-950);
+  background: var(--saffron-400);
+  color: var(--cream-50);
 }
 
 /* ---- Scrollbar ----------------------------------------------- */
 @supports (scrollbar-color: red blue) {
-  html { scrollbar-color: var(--plum-600) var(--plum-900); scrollbar-width: thin; }
+  html { scrollbar-color: var(--sand-400) var(--cream-200); scrollbar-width: thin; }
 }
 
 /* ---- Utilities ----------------------------------------------- */

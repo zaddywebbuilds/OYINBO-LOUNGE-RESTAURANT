@@ -2,82 +2,87 @@
    OYINBO — 01 TOKENS
    The single source of truth for colour, type, space and depth.
 
-   Palette: a deep plum room lit by yellow and green.
-   Purple carries every surface, yellow is the primary accent,
-   green is the second voice. Amber is a narrow heat tint only.
+   Palette: a bright, warm room. Cream and sand carry every surface;
+   saffron is the primary accent, olive the second, berry the third.
    ============================================================= */
 
 :root {
-  /* ---- Purple: all surfaces --------------------------------- */
-  --plum-950: #150823;
-  --plum-900: #22103A;   /* page background */
-  --plum-850: #2A1446;
-  --plum-800: #331A52;   /* raised surface */
-  --plum-700: #3D2060;   /* card */
-  --plum-600: #4E2C77;   /* border / hairline */
-  --plum-500: #6B42A0;
-  --plum-400: #8B5FC4;
-  --plum-300: #B68FE5;
+  /* ---- Cream & sand: all surfaces ---------------------------- */
+  --cream-50:  #FFFCF6;
+  --cream-100: #FFF7EA;   /* card */
+  --cream-200: #FDF1E0;   /* page background */
+  --cream-300: #F7E6CE;   /* alternating band */
+  --sand-400:  #EBD6B8;   /* hairline / border */
+  --sand-500:  #D8BD97;
+  --sand-600:  #B99B72;
 
-  /* ---- Yellow: primary accent -------------------------------- */
-  --yellow-100: #FFF8DF;
-  --yellow-200: #FFEFB4;
-  --yellow-300: #FFE27A;
-  --yellow-400: #FFD54A;   /* primary */
-  --yellow-500: #E9B81F;
-  --yellow-600: #B98C10;
+  /* ---- Ink: text -------------------------------------------- */
+  --ink-900: #2E2017;     /* primary text */
+  --ink-700: #513D2E;     /* secondary text */
+  --ink-500: #7C6451;     /* muted text */
+  --ink-300: #A89079;
 
-  /* ---- Green: second voice ----------------------------------- */
-  --green-200: #BDF5D4;
-  --green-300: #7BE8A6;
-  --green-400: #37C871;   /* primary green */
-  --green-500: #22A557;
-  --green-600: #15803D;
+  /* ---- Saffron: primary accent ------------------------------- */
+  --saffron-100: #FFEFD2;
+  --saffron-200: #FFDCA3;
+  --saffron-300: #FBC063;
+  --saffron-400: #F0A32E;   /* primary */
+  --saffron-500: #D4821A;
+  --saffron-600: #A6620F;
 
-  /* ---- Amber: heat tint (spice marks only) -------------------- */
-  --amber-300: #FFB75E;
-  --amber-400: #FF9426;
+  /* ---- Olive: second voice ----------------------------------- */
+  --olive-200: #DDE8C4;
+  --olive-300: #A9C274;
+  --olive-400: #7BA33F;
+  --olive-500: #5E8129;
+  --olive-600: #46611C;
 
-  /* ---- Text (cool, lilac-shifted) ---------------------------- */
-  --mist-100: #FBF7FF;   /* primary text */
-  --mist-200: #EADFF7;
-  --mist-300: #CBB9E6;   /* secondary text */
-  --mist-400: #A694C0;   /* muted text */
+  /* ---- Berry: third voice ------------------------------------ */
+  --berry-200: #F3D4E6;
+  --berry-300: #D48CB6;
+  --berry-400: #A8457E;
+  --berry-500: #85305F;
+
+  /* ---- Chilli: heat tint (spice marks only) ------------------ */
+  --chilli-400: #DC4B2A;
+  --chilli-500: #B23618;
 
   /* ---- Semantic ---------------------------------------------- */
-  --bg: var(--plum-900);
-  --bg-raised: var(--plum-800);
-  --bg-band: var(--plum-950);   /* alternating section band — darker than the page */
-  --bg-card: var(--plum-700);
-  --line: var(--plum-600);
-  --line-soft: rgba(255, 213, 74, 0.18);
-  --text: var(--mist-100);
-  --text-soft: var(--mist-300);
-  --text-muted: var(--mist-400);
-  --accent: var(--yellow-400);
-  --accent-hi: var(--yellow-300);
-  --accent-2: var(--green-400);
+  --bg: var(--cream-200);
+  --bg-raised: var(--cream-100);
+  --bg-band: var(--cream-300);     /* alternating section band */
+  --bg-card: var(--cream-50);
+  --line: var(--sand-400);
+  --line-soft: rgba(240, 163, 46, 0.26);
+  --text: var(--ink-900);
+  --text-soft: var(--ink-700);
+  --text-muted: var(--ink-500);
+  /* --accent is the TEXT-safe saffron: saffron-400/500 are bright enough to
+     fill a shape but fail contrast as type on cream. Use the numbered tokens
+     for fills and gradients, --accent for anything a reader has to read. */
+  --accent: #985809;
+  --accent-hi: #7B4607;
+  --accent-2: var(--olive-600);
 
   /* Translucent layers for glass + overlays */
-  --glass: rgba(255, 255, 255, 0.06);
-  --glass-hi: rgba(255, 255, 255, 0.11);
-  --glass-line: rgba(255, 255, 255, 0.14);
-  --scrim: rgba(21, 8, 35, 0.74);
+  --glass: rgba(255, 255, 255, 0.58);
+  --glass-hi: rgba(255, 255, 255, 0.82);
+  --glass-line: rgba(46, 32, 23, 0.12);
+  --scrim: rgba(46, 32, 23, 0.72);
 
-  /* Tints — used anywhere a colour needs to sit on a surface */
-  --tint-yellow: rgba(255, 213, 74, 0.13);
-  --tint-yellow-line: rgba(255, 213, 74, 0.30);
-  --tint-green: rgba(55, 200, 113, 0.14);
-  --tint-green-line: rgba(55, 200, 113, 0.32);
-  --tint-amber: rgba(255, 148, 38, 0.16);
-  --tint-plum: rgba(139, 95, 196, 0.16);
+  /* Tints — a colour sitting on a cream surface */
+  --tint-saffron: rgba(240, 163, 46, 0.16);
+  --tint-saffron-line: rgba(240, 163, 46, 0.42);
+  --tint-olive: rgba(123, 163, 63, 0.18);
+  --tint-olive-line: rgba(123, 163, 63, 0.42);
+  --tint-berry: rgba(168, 69, 126, 0.14);
+  --tint-chilli: rgba(220, 75, 42, 0.14);
 
   /* ---- Type ------------------------------------------------- */
   --font-display: "Fraunces", "Playfair Display", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  /* Fluid type scale — clamp(min, preferred, max) */
   --t-xs:   0.75rem;
   --t-sm:   0.8125rem;
   --t-base: 1rem;
@@ -108,7 +113,7 @@
   --gutter: clamp(1.125rem, 4vw, 2.5rem);
   --section-y: clamp(3.25rem, 8vw, 7rem);
   --measure: 62ch;
-  --max-w: 1240px;
+  --max-w: 1320px;
   --max-w-narrow: 760px;
   --header-h: 4.25rem;
 
@@ -120,12 +125,12 @@
   --r-xl: 28px;
   --r-pill: 999px;
 
-  /* ---- Depth ------------------------------------------------ */
-  --sh-1: 0 1px 2px rgba(10, 4, 18, 0.45);
-  --sh-2: 0 6px 20px rgba(10, 4, 18, 0.5);
-  --sh-3: 0 18px 48px rgba(10, 4, 18, 0.6);
-  --sh-4: 0 28px 70px rgba(10, 4, 18, 0.68);
-  --sh-glow: 0 10px 40px rgba(255, 213, 74, 0.26);
+  /* ---- Depth — soft and warm, never grey -------------------- */
+  --sh-1: 0 1px 2px rgba(120, 82, 45, 0.10);
+  --sh-2: 0 6px 20px rgba(120, 82, 45, 0.13);
+  --sh-3: 0 18px 44px rgba(120, 82, 45, 0.17);
+  --sh-4: 0 28px 70px rgba(120, 82, 45, 0.22);
+  --sh-glow: 0 12px 38px rgba(240, 163, 46, 0.38);
 
   /* ---- Motion ------------------------------------------------ */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
