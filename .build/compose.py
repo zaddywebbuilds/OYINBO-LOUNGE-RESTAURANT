@@ -70,35 +70,11 @@ PAGES = [
     {
         "slug": "index.html",
         "title": "Oyinbo Bar &amp; Grill Lounge | Nigerian Restaurant in North York, Toronto",
-        "description": "Nigerian kitchen, craft bar and afrobeats nights at 2300 Finch Ave West, North York. Suya, asun, jollof, pepper soup and late-night energy until 3am Thursday to Saturday.",
-        "image": "assets/img/venue/storefront.webp",
+        "description": "Nigerian kitchen, craft bar and afrobeats nights at 2300 Finch Ave W, North York. Suya, asun, jollof, isi ewu and pepper soup, served until 3am Thursday to Saturday.",
+        "image": "assets/img/og-cover.jpg",
         "canonical": "",
         "extra_head_file": "index.head.html",
         "og_type": "restaurant",
-    },
-    {
-        "slug": "menu.html",
-        "title": "Menu | Oyinbo Bar &amp; Grill Lounge, North York",
-        "description": "The full Oyinbo menu: jollof, ofada and ayamase, asun, isi ewu, nkwobi, ram and turkey suya, pepper soups, grilled tilapia, beers and premium spirits. Prices in CAD.",
-        "image": "assets/img/dishes/suya.webp",
-    },
-    {
-        "slug": "nightlife.html",
-        "title": "Nightlife &amp; Events | Oyinbo Bar &amp; Grill Lounge, North York",
-        "description": "Afrobeats, amapiano and live highlife in North York. Friday Vibes with DJ Rolland, Afrobeats Saturdays, Sunday sundowns and private bookings any night.",
-        "image": "assets/img/venue/storefront.webp",
-    },
-    {
-        "slug": "about.html",
-        "title": "Our Story | Oyinbo Bar &amp; Grill Lounge, North York",
-        "description": "Founded by Mola Stanley Ilesanmi, Oyinbo brings the confidence of Lagos hospitality to North York. A Nigerian kitchen and craft bar built for every background.",
-        "image": "assets/img/venue/storefront.webp",
-    },
-    {
-        "slug": "visit.html",
-        "title": "Visit &amp; Reserve | Oyinbo Bar &amp; Grill Lounge, North York",
-        "description": "2300 Finch Ave W, Unit 68, North York. Opening hours, parking, transit and how to reserve a table or book the room for a private event.",
-        "image": "assets/img/venue/storefront.webp",
     },
 ]
 

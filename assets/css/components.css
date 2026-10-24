@@ -502,3 +502,135 @@
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ---- Feature card: image on top, icon badge, copy below ----------- */
+.feature {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform var(--dur-2) var(--ease),
+              border-color var(--dur-2) var(--ease),
+              box-shadow var(--dur-2) var(--ease);
+}
+.feature:hover {
+  transform: translateY(-4px);
+  border-color: var(--tint-yellow-line);
+  box-shadow: var(--sh-3);
+}
+.feature__media { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: var(--plum-850); }
+.feature__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-3) var(--ease); }
+.feature:hover .feature__media img { transform: scale(1.06); }
+.feature__badge {
+  position: absolute;
+  left: var(--s-4);
+  bottom: -1.375rem;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.875rem;
+  z-index: 2;
+  border: 2px solid var(--plum-700);
+  box-shadow: var(--sh-2);
+  color: var(--plum-950);
+}
+.feature__badge svg { width: 1.25rem; height: 1.25rem; }
+.feature__badge--yellow { background: linear-gradient(140deg, var(--yellow-300), var(--yellow-500)); }
+.feature__badge--green  { background: linear-gradient(140deg, var(--green-300), var(--green-500)); }
+.feature__badge--plum   { background: linear-gradient(140deg, var(--plum-400), var(--plum-600)); color: var(--mist-100); }
+.feature__badge--amber  { background: linear-gradient(140deg, var(--amber-300), var(--amber-400)); }
+.feature__body { padding: 2.125rem var(--s-5) var(--s-5); flex: 1; }
+.feature__body h3 { margin-bottom: var(--s-2); }
+.feature__body p { font-size: 0.9375rem; margin: 0; }
+
+/* ---- Menu row with a thumbnail — every dish shows its plate ------- */
+.plate {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: var(--s-4);
+  align-items: center;
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--line);
+}
+.plate:last-child { border-bottom: 0; }
+.plate__thumb {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--plum-850);
+}
+.plate__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-2) var(--ease); }
+.plate:hover .plate__thumb img { transform: scale(1.08); }
+.plate__name {
+  font-family: var(--font-display);
+  font-size: var(--t-md);
+  font-weight: 600;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+}
+.plate__desc { font-size: 0.875rem; color: var(--text-muted); margin: 0.1875rem 0 0; }
+.plate__price {
+  font-weight: 800;
+  font-size: var(--t-md);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 30rem) {
+  .plate { grid-template-columns: 3.5rem 1fr auto; gap: var(--s-3); }
+  .plate__thumb { width: 3.5rem; height: 3.5rem; }
+}
+
+/* ---- Drinks: no photography, so no empty picture frames ----------- */
+.pours { display: grid; gap: var(--s-2); }
+.pour {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--bg-card);
+}
+.pour__name { font-weight: 600; font-size: 0.9375rem; }
+.pour__rule { flex: 1; border-bottom: 1px dotted var(--plum-500); transform: translateY(-0.25rem); }
+.pour__price { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+
+/* ---- Mosaic: a dense wall of plates ------------------------------- */
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 6.5rem), 1fr));
+  gap: var(--s-2);
+}
+.mosaic__cell {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--plum-850);
+  cursor: zoom-in;
+}
+.mosaic__cell img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-3) var(--ease); }
+.mosaic__cell:hover img { transform: scale(1.08); }
+.mosaic__cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 0 var(--accent);
+  transition: box-shadow var(--dur-2) var(--ease);
+}
+.mosaic__cell:hover::after { box-shadow: inset 0 0 0 2px var(--accent); }
+.mosaic__cell--tall { grid-row: span 2; aspect-ratio: 1 / 2; }
+.mosaic__cell--wide { grid-column: span 2; aspect-ratio: 2 / 1; }
+@media (max-width: 30rem) {
+  .mosaic__cell--tall { grid-row: span 1; aspect-ratio: 1; }
+  .mosaic__cell--wide { grid-column: span 2; aspect-ratio: 2 / 1; }
+}

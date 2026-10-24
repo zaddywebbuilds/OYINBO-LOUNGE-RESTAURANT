@@ -7,7 +7,7 @@ files at the root are the site.
 ## Structure
 
 ```
-index.html  menu.html  nightlife.html  about.html  visit.html   generated pages
+index.html                       the whole site — one page, anchor nav
 favicon.svg  robots.txt  sitemap.xml
 
 assets/
@@ -21,8 +21,8 @@ assets/
   js/
     main.js          nav, accordion, reveal, lightbox, open/closed status
   img/
-    venue/           storefront photo (WebP)
-    dishes/          dish photos (WebP)
+    photo/           9 real Google Business Profile photographs (WebP)
+    concept/         21 illustrative plates from the supplied kit (WebP)
     og-cover.jpg     1200×630 social preview card
 
 .build/              page sources — edit these, not the root .html
@@ -41,15 +41,27 @@ Change **`.build/`** or **`assets/css/*.css`**, then rebuild:
 python .build/compose.py
 ```
 
-That regenerates `assets/css/site.css` and all five root `.html` files, and sets
-`aria-current="page"` on the right nav item for each page. Anything written
-directly into `site.css` or the root `.html` files is overwritten on the next run.
+That regenerates `assets/css/site.css`, `index.html`, `robots.txt` and
+`sitemap.xml`. Anything written directly into those files is overwritten on the
+next run.
 
 To preview locally:
 
 ```bash
 python -m http.server 8777
 ```
+
+## One page
+
+The whole site is `index.html`. The masthead and footer link to in-page
+anchors — `#menu`, `#nightlife`, `#story`, `#gallery`, `#visit` — and the
+mobile drawer mirrors them. There are no other pages to keep in sync.
+
+Every image slot on the page is filled. The turning wheel in the hero holds
+eight real photographs, every one of the 22 food rows on the menu carries a
+thumbnail of its own plate, and the gallery shows all 30 images. The bar lists
+are typeset rather than illustrated, because there is no drinks photography and
+an empty picture frame reads worse than none.
 
 ## Design system
 
@@ -112,19 +124,28 @@ refresh it.
   drives the live open/closed badge (computed in `America/Toronto`) and the
   highlighted row in the hours tables. The same hours are repeated in the
   JSON-LD in `.build/index.head.html` — update both.
-* **Photos** — the business's Google Business Profile: the storefront plus
-  jollof, nkwobi, plantain and yam, grilled tilapia, suya, fried yam, grilled
-  chicken and fried fish. Full-resolution originals are kept in `gbp-images/`.
+* **Photos** — 30 images in all, every one of them placed on the page:
+  * `assets/img/photo/` — the 9 real photographs from the Google Business
+    Profile (storefront, jollof, nkwobi, plantain and yam, grilled tilapia,
+    suya, fried yam, grilled chicken, fried fish). Originals are in
+    `gbp-images/`. These carry the hero, the turning wheel and the signature
+    cards.
+  * `assets/img/concept/` — 21 of the 25 plates from the supplied kit.
 
 ## Before launch
 
-1. **Replace the ten stand-in dish images.** These come from the supplied
-   concept kit because the Google profile has no photo of those plates:
-   `asun`, `ofada-ayamase`, `isi-ewu`, `goat-pepper-soup`, `fish-pepper-soup`,
-   `pepper-snail`, `ponmo`, `fried-rice`, `turkey-suya`, `pepper-wings`.
-   The kit's own notes say they are AI-generated illustrations, **not**
-   photographs of Oyinbo's food. `asun` and `goat-pepper-soup` matter most —
-   both sit on the home page.
+1. **Replace `assets/img/concept/` with real photography.** Those 21 images
+   are from the supplied kit, whose own notes say they are AI-generated
+   illustrations, **not** photographs of Oyinbo's food. The page carries a line
+   saying some plates are shown with illustrative photography, but real shots
+   are better. `asun`, `goat-pepper-soup`, `isi-ewu` and `ofada-ayamase` matter
+   most — they sit in the signature cards near the top.
+
+   **Four images from the kit are deliberately not used**: the venue exterior,
+   lounge and bar concepts (files 10–13). The kit states they are entirely
+   fictional and "must never be represented as actual premises", so putting
+   them on the real restaurant's site would misrepresent the room. Drop them in
+   once there are real interior photos.
 2. **Confirm the phone number** against the three above.
 3. **Switch to the real domain.** Every absolute URL — canonical, `og:url`,
    `og:image`, the JSON-LD, `sitemap.xml` and `robots.txt` — is built from
