@@ -114,7 +114,7 @@
   --s-10: 8rem;
 
   --gutter: clamp(1.125rem, 4vw, 2.5rem);
-  --section-y: clamp(3.25rem, 8vw, 7rem);
+  --section-y: clamp(2.25rem, 4vw, 3.5rem);
   --measure: 62ch;
   --max-w: 1320px;
   --max-w-narrow: 760px;
@@ -341,7 +341,7 @@ hr {
   z-index: var(--z-base);
   padding-block: var(--section-y);
 }
-.section--tight { padding-block: clamp(3rem, 6vw, 5rem); }
+.section--tight { padding-block: clamp(1.75rem, 3vw, 2.75rem); }
 .section--raised { background: var(--bg-band); }
 .section--line { border-top: 1px solid var(--line); }
 
@@ -351,7 +351,7 @@ hr {
   flex-direction: column;
   gap: var(--s-4);
   max-width: 54ch;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(1.5rem, 2.5vw, 2.25rem);
 }
 .sec-head--center { max-width: 56ch; margin-inline: auto; text-align: center; align-items: center; }
 .sec-head--split {
@@ -1319,10 +1319,9 @@ body.nav-open { overflow: hidden; }
    Every image inside is a card of its own — nothing sits behind type. */
 .stage {
   position: relative;
-  margin: var(--s-4) var(--s-4) 0;
-  padding: clamp(5.5rem, 9vw, 7rem) clamp(1rem, 3vw, 2.5rem) clamp(2.5rem, 5vw, 4rem);
-  border-radius: var(--r-xl);
-  border: 1px solid var(--line);
+  margin: 0;
+  padding: clamp(5.5rem, 9vw, 7rem) clamp(1rem, 3vw, 2.5rem) clamp(2.25rem, 4vw, 3.25rem);
+  border-bottom: 1px solid var(--line);
   overflow: hidden;
   isolation: isolate;
   background:
@@ -1334,10 +1333,6 @@ body.nav-open { overflow: hidden; }
     inset 0 1px 0 rgba(46, 32, 23, 0.06),
     var(--sh-4);
 }
-@media (min-width: 62rem) {
-  .stage { margin: var(--s-5) var(--s-5) 0; }
-}
-
 /* Faint arc lines behind the ring — geometry, not imagery. */
 .stage__arcs {
   position: absolute;
@@ -1561,7 +1556,7 @@ figure.stage__card {
   position: relative;
   z-index: 2;
   max-width: var(--max-w);
-  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+  margin: clamp(1.75rem, 3vw, 2.75rem) auto 0;
   display: grid;
   gap: var(--s-5);
   justify-items: center;
@@ -1836,7 +1831,7 @@ figure.stage__card {
 .menu-nav a.is-active { color: var(--ink-900); background: var(--saffron-400); border-color: var(--saffron-400); }
 
 .menu-group { scroll-margin-top: 10rem; }
-.menu-group + .menu-group { margin-top: clamp(3rem, 6vw, 5rem); }
+.menu-group + .menu-group { margin-top: clamp(2rem, 3.5vw, 3rem); }
 .menu-group__head {
   display: flex;
   flex-wrap: wrap;

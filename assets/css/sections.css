@@ -7,10 +7,9 @@
    Every image inside is a card of its own — nothing sits behind type. */
 .stage {
   position: relative;
-  margin: var(--s-4) var(--s-4) 0;
-  padding: clamp(5.5rem, 9vw, 7rem) clamp(1rem, 3vw, 2.5rem) clamp(2.5rem, 5vw, 4rem);
-  border-radius: var(--r-xl);
-  border: 1px solid var(--line);
+  margin: 0;
+  padding: clamp(5.5rem, 9vw, 7rem) clamp(1rem, 3vw, 2.5rem) clamp(2.25rem, 4vw, 3.25rem);
+  border-bottom: 1px solid var(--line);
   overflow: hidden;
   isolation: isolate;
   background:
@@ -22,10 +21,6 @@
     inset 0 1px 0 rgba(46, 32, 23, 0.06),
     var(--sh-4);
 }
-@media (min-width: 62rem) {
-  .stage { margin: var(--s-5) var(--s-5) 0; }
-}
-
 /* Faint arc lines behind the ring — geometry, not imagery. */
 .stage__arcs {
   position: absolute;
@@ -249,7 +244,7 @@ figure.stage__card {
   position: relative;
   z-index: 2;
   max-width: var(--max-w);
-  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+  margin: clamp(1.75rem, 3vw, 2.75rem) auto 0;
   display: grid;
   gap: var(--s-5);
   justify-items: center;
@@ -524,7 +519,7 @@ figure.stage__card {
 .menu-nav a.is-active { color: var(--ink-900); background: var(--saffron-400); border-color: var(--saffron-400); }
 
 .menu-group { scroll-margin-top: 10rem; }
-.menu-group + .menu-group { margin-top: clamp(3rem, 6vw, 5rem); }
+.menu-group + .menu-group { margin-top: clamp(2rem, 3.5vw, 3rem); }
 .menu-group__head {
   display: flex;
   flex-wrap: wrap;

@@ -111,7 +111,7 @@
   --s-10: 8rem;
 
   --gutter: clamp(1.125rem, 4vw, 2.5rem);
-  --section-y: clamp(3.25rem, 8vw, 7rem);
+  --section-y: clamp(2.25rem, 4vw, 3.5rem);
   --measure: 62ch;
   --max-w: 1320px;
   --max-w-narrow: 760px;
